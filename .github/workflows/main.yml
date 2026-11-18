@@ -54,9 +54,9 @@ jobs:
         run: |
           set -e -o pipefail
           ./cruelbuild config                    \
-                       model=${{ matrix.model }} \
+                       model=G970F               \
                        name="Cruel-devel"        \
-                       toolchain=$TOOLCHAIN      \
+                       toolchain=cruel           \
                        mass_storage              \
                        fp_boost                  \
                        noatime                   \
