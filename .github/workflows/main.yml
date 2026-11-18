@@ -119,24 +119,26 @@ jobs:
         run: |
           mkdir -p installer && cd installer
           unzip ../CruelKernel.zip
+
       - name: Upload Kernel Zip
         if: env.INSTALLER == 'yes'
         uses: actions/upload-artifact@v4
         with:
-          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}
+          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}-${{ github.run_attempt }}
           path: installer/*
           if-no-files-found: error
+
       - name: Upload Kernel Images
         if: env.INSTALLER != 'yes'
         uses: actions/upload-artifact@v4
         with:
-          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}
+          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}-${{ github.run_attempt }}
           path: '*.img'
           if-no-files-found: error
 
       - name: Upload Kernel Info
         uses: actions/upload-artifact@v4
         with:
-          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}
+          name: ConfigurationInfo-${{ steps.ccache_model_key.outputs.KEY }}-${{ github.run_attempt }}
           path: config.*
           if-no-files-found: error
