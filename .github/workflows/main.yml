@@ -57,9 +57,10 @@ jobs:
                        model=${{ matrix.model }} \
                        name="Cruel-devel"        \
                        toolchain=cruel           \
-                       +mass_storage              \
-                       +fp_boost                  \
-                       +noatime                   \
+                       -magisk                   \
+                       +mass_storage             \
+                       +fp_boost                 \
+                       +noatime                  \
                        +nodebug                  \
                        +nohardening              \
                        +io_bfq                   \
