@@ -122,20 +122,20 @@ jobs:
         if: env.INSTALLER == 'yes'
         uses: actions/upload-artifact@v4
         with:
-          name: CruelKernel-${{ matrix.model }}
+          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}
           path: installer/*
           if-no-files-found: error
       - name: Upload Kernel Images
         if: env.INSTALLER != 'yes'
         uses: actions/upload-artifact@v4
         with:
-          name: CruelKernel-${{ matrix.model }}
+          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}
           path: '*.img'
           if-no-files-found: error
 
       - name: Upload Kernel Info
         uses: actions/upload-artifact@v4
         with:
-          name: ConfigurationInfo-${{ matrix.model }}
+          name: CruelKernel-${{ steps.ccache_model_key.outputs.KEY }}
           path: config.*
           if-no-files-found: error
