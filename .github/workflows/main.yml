@@ -53,25 +53,25 @@ jobs:
       - name: Kernel Configure
         run: |
           set -e -o pipefail
-          ./cruelbuild config                     \
-                       model=${{ matrix.model }}  \
-                       name="Cruel-devel"         \
-                       toolchain=cruel            \
-                       -magisk                    \
-                       +mass_storage              \
-                       +fp_boost                  \
-                       +noatime                   \
-                       +nodebug                   \
-                       +nohardening               \
-                       +io_bfq                    \
-                       +ttl                       \
-                       +wireguard                 \
-                       +cifs                      \
-                       +sdfat                     \
-                       +ntfs                      \
-                       +force_dex_wqhd            \
-                       +morosound                 \
-                       +boeffla_wl_blocker        \
+          ./cruelbuild config                    \
+                       model=${{ matrix.model }} \
+                       name="Cruel-devel"        \
+                       toolchain=cruel           \
+                       -magisk                   \
+                       +mass_storage             \
+                       +fp_boost                 \
+                       +noatime                  \
+                       +nodebug                  \
+                       +nohardening              \
+                       +io_bfq                   \
+                       +ttl                      \
+                       +wireguard                \
+                       +cifs                     \
+                       +sdfat                    \
+                       +ntfs                     \
+                       +force_dex_wqhd           \
+                       +morosound                \
+                       +boeffla_wl_blocker       \
           2>&1 | tee config.info
 
       - name: Install gcc-aarch64-linux-gnu
