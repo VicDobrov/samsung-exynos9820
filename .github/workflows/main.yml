@@ -49,6 +49,10 @@ jobs:
             ccache-${{ env.TOOLCHAIN }}-${{ steps.ccache_model_key.outputs.KEY }}-${{ steps.ccache_timestamp.outputs.MONTH_DATE }}
             ccache-${{ env.TOOLCHAIN }}-${{ steps.ccache_model_key.outputs.KEY }}-
             ccache-${{ env.TOOLCHAIN }}-
+      - name: Integrate KernelSU Next (legacy)
+        run: |
+          curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash -s legacy
+          grep -q "KernelSU" Makefile && echo "KernelSU Next integrated"
 
       - name: Kernel Configure
         run: |
@@ -59,6 +63,7 @@ jobs:
                        toolchain=cruel           \
                        -magisk                   \
                        +mass_storage             \
+                       +kernelsunext             \
                        +fp_boost                 \
                        +noatime                  \
                        +nodebug                  \
