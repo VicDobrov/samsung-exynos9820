@@ -57,7 +57,7 @@ jobs:
                        model=${{ matrix.model }} \
                        name="Cruel-devel"        \
                        toolchain=cruel           \
-                       +magisk=v30.7             \
+                       +magisk=v26.3             \
                        +mass_storage             \
                        +fp_boost                 \
                        +noatime                  \
